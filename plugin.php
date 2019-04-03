@@ -3,7 +3,7 @@
  * Plugin Name: nuCloud Map Embed Block
  * Plugin URI: https://github.com/nuCloud/nucloud-block/
  * Description: Allows a user to embed their nuCloud powered interactive map into a page with a block in Gutenberg.
- * Author: fienen
+ * Author: Michael Fienen
  * Author URI: https://nucloud.com/
  * Version: .1
  * License: GPL2+
