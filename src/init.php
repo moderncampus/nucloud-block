@@ -65,7 +65,7 @@ function map_block_assets() { // phpcs:ignore
 	 * @since 1.16.0
 	 */
 	register_block_type(
-		'nucloud/map', array(
+		'nucloud/map-embed', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'nucloud-map-style-css',
 			// Enqueue blocks.build.js in the editor only.
