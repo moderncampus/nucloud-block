@@ -42,12 +42,14 @@ registerBlockType( 'nucloud/map-embed', {
 	],
 	attributes: {
 		map_id: {
+			default: 5,
 			type: 'integer'
 		},
 		query_string: {
 			type: 'string'
 		},
 		height: {
+			default: 500,
 			type: 'integer'
 		}
 	},
@@ -73,6 +75,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
 							onChange={ map_id => { setAttributes( { map_id } ) } }
 							value={ attributes.map_id }
+							type='number'
 						/>
 					</PanelRow>
 
