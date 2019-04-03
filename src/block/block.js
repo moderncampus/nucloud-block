@@ -1,5 +1,5 @@
 /**
- * BLOCK: nucloud-block
+ * BLOCK: nucloud/map-embed
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
@@ -32,10 +32,9 @@ const {
  *                             registered; otherwise `undefined`.
  */
 registerBlockType( 'nucloud/map-embed', {
-	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'nuCloud Map Embed' ), // Block title.
-	icon: 'location-alt', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'embed', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'nuCloud Map Embed' ),
+	icon: 'location-alt',
+	category: 'embed', // E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'map' ),
 		__( 'nucloud' ),
@@ -65,10 +64,9 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		// Creates a <p class='wp-block-cgb-block-nucloud-block'></p>.
 		return (
 			<div className={ props.className }>
-				<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map={ props.attributes.map_id }" width="100%" height="{ props.attributes.height }"></iframe>
+				<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map=5" width="100%" height="500"></iframe>
 			</div>
 		);
 	},
