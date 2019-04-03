@@ -63,7 +63,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		const { attributes, setAttributes } = props;
+		const { attributes, className, setAttributes } = props;
 		return (
 			<InspectorControls>
 				<PanelBody
@@ -99,7 +99,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ props.className }>
-				<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map={ attributes.map_id }" width="100%" height="{ attributes.height }"></iframe>
+				<iframe src={ "https://cdn-map1.nucloud.com/nucloudmap/index.html?map=" + attributes.map_id } style={ "height:" + attributes.height + "px;" }></iframe>
 			</div>
 		);
 	},
