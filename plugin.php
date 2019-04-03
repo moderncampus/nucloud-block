@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: nucloud-block — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: nucloud-block — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
- * Version: 1.0.0
+ * Plugin Name: nuCloud Map Embed Block
+ * Plugin URI: https://github.com/nuCloud/nucloud-block/
+ * Description: Allows a user to embed their nuCloud powered interactive map into a page with a block in Gutenberg.
+ * Author: fienen
+ * Author URI: https://nucloud.com/
+ * Version: .1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *

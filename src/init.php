@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
-function map_block_assets() { // phpcs:ignore
+function block_map_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
 		'nucloud-map-style-css', // Handle.
@@ -67,14 +67,19 @@ function map_block_assets() { // phpcs:ignore
 	register_block_type(
 		'nucloud/map-embed', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'nucloud-map-style-css',
+			'style'           => 'nucloud-map-style-css',
 			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'nucloud-map-block-js',
+			'editor_script'   => 'nucloud-map-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'nucloud-map-block-editor-css',
+			'editor_style'    => 'nucloud-map-block-editor-css',
+			'render_callback' => __NAMESPACE__ . 'block_map_render'
 		)
 	);
 }
 
+function block_map_render($props) {
+	return '<div class="wp-block-nucloud-map-embed"><iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map=5" width="100%" height="700"></iframe></div>';
+}
+
 // Hook: Block assets.
-add_action( 'init', __NAMESPACE__ . 'map_block_assets' );
+add_action( 'init', __NAMESPACE__ . 'block_map_assets' );
