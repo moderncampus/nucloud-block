@@ -44,10 +44,7 @@ registerBlockType( 'nucloud/map-embed', {
 		map_id: {
 			type: 'integer'
 		},
-		category: {
-			type: 'string'
-		},
-		marker: {
+		query_string: {
 			type: 'string'
 		},
 		height: {
@@ -64,9 +61,42 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
+		const { attributes, setAttributes } = props;
 		return (
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Map Settings', 'nucloud' ) }
+				>
+					<PanelRow>
+						<TextControl
+							label={ __( 'Map ID', 'nucloud' ) }
+							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
+							onChange={ map_id => { setAttributes( { map_id } ) } }
+							value={ attributes.map_id }
+						/>
+					</PanelRow>
+
+					<PanelRow>
+						<TextControl
+							label={ __( 'Map Height', 'nucloud' ) }
+							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
+							onChange={ height => { setAttributes( { height } ) } }
+							value={ attributes.height }
+						/>
+					</PanelRow>
+
+					<PanelRow>
+						<TextControl
+							label={ __( 'Customize View', 'nucloud' ) }
+							help={ __( 'Enter a query string for a marker or category to customize the display', 'nucloud' ) }
+							onChange={ query_string => { setAttributes( { query_string } ) } }
+							value={ attributes.query_string }
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>,
 			<div className={ props.className }>
-				<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map=5" width="100%" height="500"></iframe>
+				<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html?map={ attributes.map_id }" width="100%" height="{ attributes.height }"></iframe>
 			</div>
 		);
 	},
