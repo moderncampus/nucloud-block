@@ -45,12 +45,17 @@ registerBlockType( 'nucloud/map-embed', {
 			default: 5,
 			type: 'integer'
 		},
-		query_string: {
-			type: 'string'
+		marker: {
+			default: '',
+			type: 'integer'
 		},
 		height: {
 			default: 500,
 			type: 'integer'
+		},
+		layer: {
+			default: '',
+			type: 'string'
 		}
 	},
 
@@ -63,18 +68,19 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		const { attributes, className, setAttributes } = props;
-		return (
+		const { attributes: { map_id, height, marker, layer }, className, setAttributes } = props;
+		return [
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Map Settings', 'nucloud' ) }
+					initialOpen={ true }
 				>
 					<PanelRow>
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
 							onChange={ map_id => { setAttributes( { map_id } ) } }
-							value={ attributes.map_id }
+							value={ map_id }
 							type='number'
 						/>
 					</PanelRow>
@@ -84,24 +90,35 @@ registerBlockType( 'nucloud/map-embed', {
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
 							onChange={ height => { setAttributes( { height } ) } }
-							value={ attributes.height }
+							value={ height }
+							type='number'
 						/>
 					</PanelRow>
 
 					<PanelRow>
 						<TextControl
-							label={ __( 'Customize View', 'nucloud' ) }
-							help={ __( 'Enter a query string for a marker or category to customize the display', 'nucloud' ) }
-							onChange={ query_string => { setAttributes( { query_string } ) } }
-							value={ attributes.query_string }
+							label={ __( 'Display Marker', 'nucloud' ) }
+							help={ __( 'Enter a marker ID to display a stop by default', 'nucloud' ) }
+							onChange={ marker => { setAttributes( { marker } ) } }
+							value={ marker }
+							type='number'
+						/>
+					</PanelRow>
+
+					<PanelRow>
+						<TextControl
+							label={ __( 'Display Layers', 'nucloud' ) }
+							help={ __( 'Enter a comma separated list of layer names to display them by default', 'nucloud' ) }
+							onChange={ layer => { setAttributes( { layer } ) } }
+							value={ layer }
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>,
-			<div className={ props.className }>
-				<iframe src={ "https://cdn-map1.nucloud.com/nucloudmap/index.html?map=" + attributes.map_id } style={ "height:" + attributes.height + "px;" }></iframe>
+			<div className={ className }>
+				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style={{ height: height }}></iframe>
 			</div>
-		);
+		];
 	},
 
 	/**
