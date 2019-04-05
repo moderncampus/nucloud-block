@@ -16,7 +16,11 @@ From there, use the *Choose File* button to select the downloaded zip file on yo
 
 ### Upgrading
 
-This plugin includes a library that will periodically check GitHub for release updates. Upgrading to the latest version is as easy as clicking the "Update Now" link when you are notified that there is an update. This retains the normal update behavior of WordPress, and requires no special or different steps from upgrading any other plugin or theme.
+By default, this plugin includes support for detecting release updates using Andy Fragen's excellent [GitHub Updater plugin](https://github.com/afragen/github-updater). This additional plugin is not required, however.
+
+In the event you don't use GitHub Updater, we have included a library that will periodically check GitHub for release updates. _Note:_ There is currently a [known issue](https://github.com/nuCloud/nucloud-block/issues/3) with this method that prevents you from using the *View Details* link when an update is detected.
+
+In either case, upgrading to the latest version is as easy as clicking the "Update Now" link when you are notified that there is an update. This retains the normal update behavior of WordPress, and requires no special or different steps from upgrading any other plugin or theme.
 
 ![Click 'Update Now' to upgrade](https://i.imgur.com/kM2Gm2f.jpg)
 

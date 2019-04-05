@@ -95,7 +95,7 @@ class GitHubPluginUpdater {
         $this->getRepoReleaseInfo();
 
         // If nothing is found, do nothing
-        if ( empty( $response->slug ) || $response->slug != $this->slug ) {
+        if ( !isset( $response->slug ) || ( $response->slug != $this->plugin_slug ) ) {
             return false;
         }
 
