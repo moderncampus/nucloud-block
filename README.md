@@ -10,7 +10,7 @@ Add nuCloud maps to your Gutenberg enabled WordPress website with this custom bl
 
 To install, use the *Clone or Download* button on the repository homepage at GitHub to grab the zip file for the latest release. In your site's backend, go to *Plugins* > *Add New* and click the *Upload* button.
 
-![Installing a plugin from a zip file](https://i.imgur.com/undefined.jpg)
+![Installing a plugin from a zip file](https://i.imgur.com/rJ2KeAr.jpg)
 
 From there, use the *Choose File* button to select the downloaded zip file on your computer, and finish by clicking *Install Now*. Once it has been installed, activate the plugin as usual.
 
