@@ -4,9 +4,13 @@ Add nuCloud maps to your Gutenberg enabled WordPress website with this custom bl
 
 ![Editing a map in a Gutenberg block](https://i.imgur.com/uxbyr8m.png)
 
-This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+## Installation
+
+## Usage
 
 ## Development Documentation
+
+This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
 
 >You can find the most recent version of this guide [here](https://github.com/ahmadawais/create-guten-block).
 
