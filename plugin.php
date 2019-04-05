@@ -5,7 +5,7 @@
  * Description: Allows a user to embed their nuCloud powered interactive map into a page with a block in Gutenberg.
  * Author: Michael Fienen
  * Author URI: https://nucloud.com/
- * Version: .2
+ * Version: 0.3
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *

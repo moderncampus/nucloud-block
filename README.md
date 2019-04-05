@@ -6,6 +6,12 @@ Add nuCloud maps to your Gutenberg enabled WordPress website with this custom bl
 
 ## Installation
 
+![Download the current release zip file](https://i.imgur.com/zUy0nzM.jpg)
+
+### Upgrading
+
+This plugin includes a library that will periodically check GitHub for release updates. Upgrading to the latest version is as easy as clicking the "Update Now" link when you are notified that there is an update. This retains the normal update behavior of WordPress, and requires no special or different steps from upgrading any other plugin or theme.
+
 ## Usage
 
 ## Development Documentation
