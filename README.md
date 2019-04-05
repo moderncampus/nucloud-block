@@ -8,9 +8,19 @@ Add nuCloud maps to your Gutenberg enabled WordPress website with this custom bl
 
 ![Download the current release zip file](https://i.imgur.com/zUy0nzM.jpg)
 
+To install, use the *Clone or Download* button on the repository homepage at GitHub to grab the zip file for the latest release. In your site's backend, go to *Plugins* > *Add New* and click the *Upload* button.
+
+![Installing a plugin from a zip file](https://i.imgur.com/undefined.jpg)
+
+From there, use the *Choose File* button to select the downloaded zip file on your computer, and finish by clicking *Install Now*. Once it has been installed, activate the plugin as usual.
+
 ### Upgrading
 
 This plugin includes a library that will periodically check GitHub for release updates. Upgrading to the latest version is as easy as clicking the "Update Now" link when you are notified that there is an update. This retains the normal update behavior of WordPress, and requires no special or different steps from upgrading any other plugin or theme.
+
+![Click 'Update Now' to upgrade](https://i.imgur.com/kM2Gm2f.jpg)
+
+Map embeds are rendered via a server-side function on page load, so you don't have to worry about plugin updates breaking your existing blocks when editing in the future.
 
 ## Usage
 
