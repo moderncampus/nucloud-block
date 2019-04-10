@@ -51,15 +51,15 @@ registerBlockType( 'nucloud/map-embed', {
 		},
 		map_height: {
 			default: 500,
-			type: 'number'
+			type: 'integer'
 		},
 		map_id: {
 			default: 5,
-			type: 'number'
+			type: 'integer'
 		},
 		marker: {
 			default: null,
-			type: 'number'
+			type: 'integer'
 		}
 	},
 
@@ -83,7 +83,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
-							onChange={ map_id => { setAttributes( Number( { map_id } ) ) } }
+							onChange={ map_id => { setAttributes( Number( map_id ) ) } }
 							value={ map_id }
 							type='number'
 						/>
@@ -93,7 +93,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ map_height => { setAttributes( Number( { map_height } ) ) } }
+							onChange={ map_height => { setAttributes( Number( map_height ) ) } }
 							value={ map_height }
 							type='number'
 						/>
@@ -103,7 +103,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Display Marker', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
-							onChange={ marker => { setAttributes( Number( { marker } ) ) } }
+							onChange={ marker => { setAttributes( Number( marker ) ) } }
 							value={ marker }
 							type='number'
 						/>
