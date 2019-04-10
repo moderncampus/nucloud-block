@@ -83,7 +83,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
-							onChange={ map_id => setAttributes( { map_id } ) }
+							onChange={ map_id => setAttributes( parseInt({map_id}) ) }
 							value={ map_id }
 							type='number'
 						/>
@@ -93,7 +93,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ map_height => setAttributes( { map_height } ) }
+							onChange={ map_height => setAttributes( parseInt({map_height}) ) }
 							value={ map_height }
 							type='number'
 						/>
