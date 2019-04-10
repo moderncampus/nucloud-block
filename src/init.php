@@ -94,11 +94,10 @@ function nucloud_block_map_render( $attributes ) {
   }
 
 	$query_str = '?map=' . $attributes['map_id'];
-	if ( isset( $attributes['layer'] ) ) {
-      $query_str .= '&layer=' . $attributes['layer'];
-  }
 	if ( isset( $attributes['marker'] ) ) {
       $query_str .= '&marker=' . $attributes['marker'];
+  } elseif ( isset( $attributes['layer'] ) ) {
+      $query_str .= '&layer=' . $attributes['layer'];
   }
 
 	return '<div class="' . $class . '">

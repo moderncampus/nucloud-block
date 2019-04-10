@@ -98,7 +98,7 @@ registerBlockType( 'nucloud/map-embed', {
 					<PanelRow>
 						<TextControl
 							label={ __( 'Display Marker', 'nucloud' ) }
-							help={ __( 'Enter a marker ID to display a stop by default', 'nucloud' ) }
+							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
 							onChange={ marker => { setAttributes( { marker } ) } }
 							value={ marker }
 							type='number'
