@@ -31,7 +31,6 @@ const {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
 	icon: 'location-alt',
@@ -74,12 +73,6 @@ registerBlockType( 'nucloud/map-embed', {
 	 */
 	edit: function( props ) {
 		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
-
-		let saveStringAsInt = function(key, str) {
-			let num = parseInt(str);
-			props.setAttributes( { key: num } );
-		}
-
 		return [
 			<InspectorControls>
 				<PanelBody
@@ -90,7 +83,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
-							onChange={ saveStringAsInt( 'map_id', { map_id } ) }
+							onChange={ map_id => { setAttributes( Number( { map_id } ) ) } }
 							value={ map_id }
 							type='number'
 						/>
@@ -100,7 +93,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ saveStringAsInt( 'map_height', { map_height } ) }
+							onChange={ map_height => { setAttributes( Number( { map_height } ) ) } }
 							value={ map_height }
 							type='number'
 						/>
@@ -110,7 +103,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Display Marker', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
-							onChange={ saveStringAsInt( 'marker', { marker } ) }
+							onChange={ marker => { setAttributes( Number( { marker } ) ) } }
 							value={ marker }
 							type='number'
 						/>
