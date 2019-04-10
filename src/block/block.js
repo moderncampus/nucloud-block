@@ -81,7 +81,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
 							onChange={ map_id => { setAttributes( { map_id } ) } }
 							value={ map_id }
-							type='number'
+							type='integer'
 						/>
 					</PanelRow>
 
@@ -91,7 +91,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
 							onChange={ height => { setAttributes( { height } ) } }
 							value={ height }
-							type='number'
+							type='integer'
 						/>
 					</PanelRow>
 
@@ -101,7 +101,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
 							onChange={ marker => { setAttributes( { marker } ) } }
 							value={ marker }
-							type='number'
+							type='integer'
 						/>
 					</PanelRow>
 
