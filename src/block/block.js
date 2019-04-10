@@ -74,8 +74,7 @@ registerBlockType( 'nucloud/map-embed', {
 	edit: function( props ) {
 		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
 		let saveAsNum = function(attr, val) {
-			let value = parseInt(val);
-			props.setAttribute({attr:value});
+			props.setAttributes({attr:parseInt(val)});
 		}
 		return [
 			<InspectorControls>
