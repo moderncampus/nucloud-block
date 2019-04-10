@@ -31,6 +31,12 @@ const {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
+
+let saveStringAsInt = function(key, str) {
+	let num = parseInt(str);
+	setAttributes( key, num );
+}
+
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
 	icon: 'location-alt',
@@ -83,7 +89,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
-							onChange={ map_id => { setAttributes( { map_id } ) } }
+							onChange={ saveStringAsInt( 'map_id', { map_id } ) }
 							value={ map_id }
 							type='number'
 						/>
@@ -93,7 +99,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ map_height => { setAttributes( { map_height } ) } }
+							onChange={ saveStringAsInt( 'map_height', { map_height } ) }
 							value={ map_height }
 							type='number'
 						/>
@@ -103,7 +109,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Display Marker', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
-							onChange={ marker => { setAttributes( { marker } ) } }
+							onChange={ saveStringAsInt( 'marker', { marker } ) }
 							value={ marker }
 							type='number'
 						/>
