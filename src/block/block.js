@@ -32,11 +32,6 @@ const {
  *                             registered; otherwise `undefined`.
  */
 
-let saveStringAsInt = function(key, str) {
-	let num = parseInt(str);
-	setAttributes( key, num );
-}
-
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
 	icon: 'location-alt',
@@ -79,6 +74,12 @@ registerBlockType( 'nucloud/map-embed', {
 	 */
 	edit: function( props ) {
 		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
+		
+		let saveStringAsInt = function(key, str) {
+			let num = parseInt(str);
+			setAttributes( key, num );
+		}
+
 		return [
 			<InspectorControls>
 				<PanelBody
