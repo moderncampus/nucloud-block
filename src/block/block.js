@@ -41,21 +41,19 @@ registerBlockType( 'nucloud/map-embed', {
 		__( 'embed' ),
 	],
 	attributes: {
+		layer: {
+			type: 'string'
+		},
+		map_height: {
+			default: 500,
+			type: 'integer'
+		},
 		map_id: {
 			default: 5,
 			type: 'integer'
 		},
 		marker: {
-			default: '',
 			type: 'integer'
-		},
-		height: {
-			default: 500,
-			type: 'integer'
-		},
-		layer: {
-			default: '',
-			type: 'string'
 		}
 	},
 
@@ -68,7 +66,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		const { attributes: { map_id, height, marker, layer }, className, setAttributes } = props;
+		const { attributes: { map_id, map_height, marker, layer }, className, setAttributes } = props;
 		return [
 			<InspectorControls>
 				<PanelBody
@@ -81,7 +79,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
 							onChange={ map_id => { setAttributes( { map_id } ) } }
 							value={ map_id }
-							type='integer'
+							type='number'
 						/>
 					</PanelRow>
 
@@ -89,9 +87,9 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ height => { setAttributes( { height } ) } }
-							value={ height }
-							type='integer'
+							onChange={ map_height => { setAttributes( { map_height } ) } }
+							value={ map_height }
+							type='number'
 						/>
 					</PanelRow>
 
@@ -101,7 +99,7 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
 							onChange={ marker => { setAttributes( { marker } ) } }
 							value={ marker }
-							type='integer'
+							type='number'
 						/>
 					</PanelRow>
 
@@ -116,7 +114,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ className }>
-				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style={{ height: height }}></iframe>
+				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} height={{ map_height }}></iframe>
 			</div>
 		];
 	},
