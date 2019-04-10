@@ -41,6 +41,9 @@ registerBlockType( 'nucloud/map-embed', {
 		__( 'embed' ),
 	],
 	attributes: {
+		element_id: {
+			type: 'string'
+		},
 		layer: {
 			type: 'string'
 		},
@@ -66,7 +69,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		const { attributes: { map_id, map_height, marker, layer }, className, setAttributes } = props;
+		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
 		return [
 			<InspectorControls>
 				<PanelBody
@@ -109,6 +112,15 @@ registerBlockType( 'nucloud/map-embed', {
 							help={ __( 'Enter a comma separated list of layer names to display them by default', 'nucloud' ) }
 							onChange={ layer => { setAttributes( { layer } ) } }
 							value={ layer }
+						/>
+					</PanelRow>
+
+					<PanelRow>
+						<TextControl
+							label={ __( 'Custom Element ID', 'nucloud' ) }
+							help={ __( 'Specify an ID to apply to the iframe that renders your map. Default: \'nucloud-map\'', 'nucloud' ) }
+							onChange={ element_id => { setAttributes( { element_id } ) } }
+							value={ element_id }
 						/>
 					</PanelRow>
 				</PanelBody>
