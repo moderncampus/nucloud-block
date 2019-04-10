@@ -129,7 +129,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	save: function( ) {
+	save: function( props ) {
 		return null;
 	},
 } );
