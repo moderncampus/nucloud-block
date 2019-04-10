@@ -101,7 +101,7 @@ function nucloud_block_map_render( $attributes ) {
   }
 
 	return '<div class="' . $class . '">
-		<iframe id="nucloud-map" data-map-id="' . $attributes['map_id'] . '" src="https://cdn-map1.nucloud.com/nucloudmap/index.html' . $query_str . '"></iframe>
+		<iframe id="nucloud-map" data-map-id="' . $attributes['map_id'] . '" src="https://cdn-map1.nucloud.com/nucloudmap/index.html' . $query_str . '" style="height:' . $attributes['height'] . 'px"></iframe>
 	</div>';
 }
 
