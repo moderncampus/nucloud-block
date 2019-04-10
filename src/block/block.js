@@ -51,11 +51,11 @@ registerBlockType( 'nucloud/map-embed', {
 		},
 		map_height: {
 			default: 500,
-			type: 'string'
+			type: 'integer'
 		},
 		map_id: {
 			default: 5,
-			type: 'string'
+			type: 'integer'
 		},
 		marker: {
 			default: null,
