@@ -93,15 +93,8 @@ function nucloud_block_map_render( $attributes ) {
       $class .= ' ' . $attributes['className'];
   }
 
-	$query_str = '?map=' . $attributes['map_id'];
-	if ( isset( $attributes['marker'] ) ) {
-      $query_str .= '&marker=' . $attributes['marker'];
-  } elseif ( isset( $attributes['layer'] ) ) {
-      $query_str .= '&layer=' . $attributes['layer'];
-  }
-
 	return '<div class="' . $class . '">
-		<iframe id="nucloud-map" data-map-id="' . $attributes['map_id'] . '" src="https://cdn-map1.nucloud.com/nucloudmap/index.html' . $query_str . '" style="height:' . $attributes['height'] . 'px"></iframe>
+		<iframe id="nucloud-map" data-map-id="' . $attributes['map_id'] . '" src style="height:' . $attributes['height'] . 'px"></iframe>
 	</div>';
 }
 

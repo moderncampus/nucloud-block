@@ -7,10 +7,13 @@ window.onload = function() {
   var layer  = getURLParameter('layer');
   var frame  = document.querySelector('.wp-block-nucloud-map-embed > iframe');
   var mapId  = frame.getAttribute('data-map-id');
+  var src    = 'https://cdn-map1.nucloud.com/nucloudmap/index.html?map=' + mapId;
 
   if(marker != null) {
-  	frame.src = '//cdn-map1.nucloud.com/nucloudmap/index.html?map=' + mapId + '&marker=' + marker;
+  	src += '&marker=' + marker;
   } else if(layer != null) {
-  	frame.src = '//cdn-map1.nucloud.com/nucloudmap/index.html?map=' + mapId + '&layer=' + layer;
+  	src += '&layer=' + layer;
   }
+
+  frame.src = src;
 }
