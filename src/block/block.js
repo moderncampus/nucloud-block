@@ -83,7 +83,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( 'Enter the ID for the map you would like to embed', 'nucloud' ) }
-							onChange={ map_id => { setAttributes( { map_id } ) } }
+							onChange={ map_id => setAttributes( { map_id } ) }
 							value={ map_id }
 							type='number'
 						/>
@@ -93,7 +93,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ map_height => { setAttributes( { map_height } ) } }
+							onChange={ map_height => setAttributes( { map_height } ) }
 							value={ map_height }
 							type='number'
 						/>
@@ -103,7 +103,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Display Marker', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
-							onChange={ marker => { setAttributes( { marker } ) } }
+							onChange={ marker => setAttributes( { marker } ) }
 							value={ marker }
 							type='number'
 						/>
@@ -113,7 +113,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Display Layers', 'nucloud' ) }
 							help={ __( 'Enter a comma separated list of layer names to display them by default', 'nucloud' ) }
-							onChange={ layer => { setAttributes( { layer } ) } }
+							onChange={ layer => setAttributes( { layer } ) }
 							value={ layer }
 						/>
 					</PanelRow>
@@ -122,7 +122,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Custom Element ID', 'nucloud' ) }
 							help={ __( 'Specify an ID to apply to the iframe that renders your map. Default: \'nucloud-map\'', 'nucloud' ) }
-							onChange={ element_id => { setAttributes( { element_id } ) } }
+							onChange={ element_id => setAttributes( { element_id } ) }
 							value={ element_id }
 						/>
 					</PanelRow>
