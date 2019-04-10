@@ -73,6 +73,10 @@ registerBlockType( 'nucloud/map-embed', {
 	 */
 	edit: function( props ) {
 		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
+		let saveAsNum = function(attr, val) {
+			let value = parseInt(val);
+			props.setAttribute({attr:value});
+		}
 		return [
 			<InspectorControls>
 				<PanelBody
@@ -93,7 +97,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ map_height => setAttributes( parseInt({map_height}) ) }
+							onChange={ saveAsNum( map_height, {map_height} ) }
 							value={ map_height }
 							type='number'
 						/>
