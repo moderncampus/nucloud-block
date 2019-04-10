@@ -36,10 +36,21 @@ function nucloud_block_map_assets() { // phpcs:ignore
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
 
+	// Register block script for frontend.
+	if( !is_admin() ) {
+		wp_enqueue_script(
+			'nucloud-map-frontend-js',
+			plugins_url( 'dist/blocks.frontend.js', dirname( __FILE__ ) ),
+			array(),
+			null,
+			true
+		);
+	}
+
 	// Register block editor script for backend.
 	wp_register_script(
 		'nucloud-map-block-js', // Handle.
-		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+		plugins_url( 'dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
 		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
 		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
@@ -91,7 +102,7 @@ function nucloud_block_map_render( $attributes ) {
   }
 
 	return '<div class="' . $class . '">
-		<iframe src="https://cdn-map1.nucloud.com/nucloudmap/index.html' . $query_str . '"></iframe>
+		<iframe id="nucloud-map" data-map-id="' . $attributes['map_id'] . '" src="https://cdn-map1.nucloud.com/nucloudmap/index.html' . $query_str . '"></iframe>
 	</div>';
 }
 
