@@ -42,9 +42,11 @@ registerBlockType( 'nucloud/map-embed', {
 	],
 	attributes: {
 		element_id: {
+			default: null,
 			type: 'string'
 		},
 		layer: {
+			default: null,
 			type: 'string'
 		},
 		map_height: {
@@ -56,6 +58,7 @@ registerBlockType( 'nucloud/map-embed', {
 			type: 'string'
 		},
 		marker: {
+			default: null,
 			type: 'integer'
 		}
 	},
@@ -126,7 +129,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ className }>
-				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} height={{ map_height }}></iframe>
+				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} height={ map_height }></iframe>
 			</div>
 		];
 	},
