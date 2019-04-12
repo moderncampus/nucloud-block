@@ -9,6 +9,9 @@
 import './style.scss';
 import './editor.scss';
 
+// Import JS
+import icon from './icon';
+
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InspectorControls } = wp.editor;
@@ -33,7 +36,7 @@ const {
  */
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
-	icon: 'location-alt',
+	icon: icon,
 	category: 'embed', // E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'map' ),
