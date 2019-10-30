@@ -37,8 +37,8 @@ function nucloud_block_map_assets() { // phpcs:ignore
 	);
 
 	// Register block script for frontend.
-	if( !is_admin() ) {
-		wp_enqueue_script(
+	if ( ! is_admin() ) {
+		wp_register_script(
 			'nucloud-map-frontend-js',
 			plugins_url( 'dist/blocks.frontend.js', dirname( __FILE__ ) ),
 			array(),
@@ -75,7 +75,8 @@ function nucloud_block_map_assets() { // phpcs:ignore
 	 * @since 1.16.0
 	 */
 	register_block_type(
-		'nucloud/map-embed', array(
+		'nucloud/map-embed',
+		array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'           => 'nucloud-map-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -84,28 +85,29 @@ function nucloud_block_map_assets() { // phpcs:ignore
 			'editor_style'    => 'nucloud-map-block-editor-css',
 			'render_callback' => 'nucloud_block_map_render',
 			'attributes'      => [
-				'map_id'        => [
-					'default'     => 5,
-					'type'        => 'integer'
+				'map_id'     => [
+					'default' => 5,
+					'type'    => 'integer',
 				],
-				'map_height'        => [
-					'default'     => 500,
-					'type'        => 'integer'
+				'map_height' => [
+					'default' => 500,
+					'type'    => 'integer',
 				],
-				'element_id'    => [
-					'default'     => 'nucloud-map',
-					'type'        => 'string'
-				]
-			]
+				'element_id' => [
+					'default' => 'nucloud-map',
+					'type'    => 'string',
+				],
+			],
 		)
 	);
 }
 
 function nucloud_block_map_render( $attributes ) {
+	wp_enqueue_script( 'nucloud-map-frontend-js' );
 	$class = 'wp-block-nucloud-map-embed';
-  if ( isset( $attributes['className'] ) ) {
-      $class .= ' ' . $attributes['className'];
-  }
+	if ( isset( $attributes['className'] ) ) {
+		$class .= ' ' . $attributes['className'];
+	}
 
 	return '<div class="' . $class . '">
 		<iframe id="' . $attributes['element_id'] . '" data-map-id="' . $attributes['map_id'] . '" src style="height:' . $attributes['map_height'] . 'px"></iframe>
