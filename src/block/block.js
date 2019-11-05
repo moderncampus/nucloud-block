@@ -45,23 +45,20 @@ registerBlockType( 'nucloud/map-embed', {
 	],
 	attributes: {
 		element_id: {
-			default: '',
 			type: 'string'
 		},
 		layer: {
-			default: '',
 			type: 'string'
 		},
 		map_height: {
-			default: '500',
+			default: 500,
 			type: 'number'
 		},
 		map_id: {
-			default: '5',
+			default: 5,
 			type: 'number'
 		},
 		marker: {
-			default: '',
 			type: 'number'
 		}
 	},
@@ -89,7 +86,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
 							help={ __( '<a href="#">How do I find the ID of the map I want to embed?</a>', 'nucloud' ) }
-							onChange={ map_id => setAttributes( parseInt({map_id}) ) }
+							onChange={ map_id => setAttributes( { map_id: parseInt(map_id) } ) }
 							value={ map_id }
 							type='number'
 						/>
@@ -99,7 +96,7 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
 							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ saveAsNum( map_height, {map_height} ) }
+							onChange={ map_height => setAttributes( { map_height: parseInt(map_height) } ) }
 							value={ map_height }
 							type='number'
 						/>
