@@ -24,13 +24,13 @@ When editing your map in the interactive map editor, there are two ways to easil
 
 The height configuration setting in the block inspector takes a value in pixels or percents of how tall your map should be.
 
-### Open a marker by default
+### Open a marker on page load
 
-In the *Display Marker* field, you can pass in the ID of a marker on your map that will be open on page load. You can only pass in one marker at a time. If you need to find your marker's ID, just open the marker on your map and click the *Share This Map* link in the popup window. You'll see a URL like `https://your.site/portfolio/?map=5&marker={MARKER_ID}&zoom=2&x=2360.690302&y=-1491.159999`, and just identify the number in place of `{MARKER_ID}`. This parameter follows (standard deep-linking rules)[https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/].
+In the *Open Marker on Load* field, you can pass in the ID of a marker on your map that will be open on page load. You can only pass in one marker at a time. If you need to find your marker's ID, just open the marker on your map and click the *Share This Map* link in the popup window. You'll see a URL like `https://your.site/portfolio/?map=5&marker={MARKER_ID}&zoom=2&x=2360.690302&y=-1491.159999`, and just identify the number in place of `{MARKER_ID}`. This parameter follows [standard deep-linking rules](https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/).
 
-### Open layers by default
+### Display layers by default
 
-Similar to opening a marker, this field allows you to insert a comma separated list of layer names that you would like to have open by default when the page loads. This parameter follows [standard deep-linking rules](https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/).
+Similar to opening a marker, the *Display Layers on Load* field allows you to insert a comma separated list of layer names that you would like to have open by default when the page loads. This parameter follows [standard deep-linking rules](https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/).
 
 ### Set a custom map ID
 
