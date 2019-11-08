@@ -30,7 +30,7 @@ In the *Display Marker* field, you can pass in the ID of a marker on your map th
 
 ### Open layers by default
 
-Similar to opening a marker, this field allows you to insert a comma separated list of layer names that you would like to have open by default when the page loads. This parameter follows (standard deep-linking rules)[https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/].
+Similar to opening a marker, this field allows you to insert a comma separated list of layer names that you would like to have open by default when the page loads. This parameter follows [standard deep-linking rules](https://nucloud.com/documentation/deep-linking-to-your-nucloud-map/).
 
 ### Set a custom map ID
 
