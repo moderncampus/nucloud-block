@@ -86,7 +86,7 @@ registerBlockType( 'nucloud/map-embed', {
 					<PanelRow>
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
-							help={ <a href="https://github.com/nucloud/nucloud-block#find-your-map-id" target="_blank">{ __( 'How do I find the ID of the map I want to embed?', 'nucloud' ) }</a> }
+							help={ <a href="https://github.com/nucloud/nucloud-block/tree/master#find-your-map-id" target="_blank">{ __( 'How do I find the ID of the map I want to embed?', 'nucloud' ) }</a> }
 							onChange={ map_id => setAttributes( { map_id } ) }
 							value={ map_id }
 						/>
