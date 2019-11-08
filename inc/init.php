@@ -97,6 +97,14 @@ function nucloud_block_map_assets() { // phpcs:ignore
 					'default' => 'nucloud-map',
 					'type'    => 'string',
 				],
+				'marker_id' => [
+					'default' => '',
+					'type'    => 'string',
+				],
+				'layer' => [
+					'default' => '',
+					'type'    => 'string',
+				]
 			],
 		)
 	);
@@ -110,7 +118,7 @@ function nucloud_block_map_render( $attributes ) {
 	}
 
 	return '<div class="' . $class . '">
-		<iframe id="' . $attributes['element_id'] . '" data-map-id="' . $attributes['map_id'] . '" src style="height:' . $attributes['map_height'] . ';"></iframe>
+		<iframe id="' . $attributes['element_id'] . '" data-map-id="' . $attributes['map_id'] . '" data-marker="' . $attributes['marker_id'] . '" data-layer="' . $attributes['layer'] . '" src style="height:' . $attributes['map_height'] . ';"></iframe>
 	</div>';
 }
 
