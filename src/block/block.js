@@ -103,7 +103,7 @@ registerBlockType( 'nucloud/map-embed', {
 
 					<PanelRow>
 						<TextControl
-							label={ __( 'Display Marker', 'nucloud' ) }
+							label={ __( 'Open Marker on Load', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
 							onChange={ marker => setAttributes( { marker } ) }
 							value={ marker }
@@ -112,7 +112,7 @@ registerBlockType( 'nucloud/map-embed', {
 
 					<PanelRow>
 						<TextControl
-							label={ __( 'Display Layers', 'nucloud' ) }
+							label={ __( 'Display Layers on Load', 'nucloud' ) }
 							help={ __( 'Enter a comma separated list of layer names to display them by default', 'nucloud' ) }
 							onChange={ layer => setAttributes( { layer } ) }
 							value={ layer }
