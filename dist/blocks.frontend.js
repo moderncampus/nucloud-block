@@ -1,6 +1,4 @@
-function getURLParameter(name) {
-  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-}
+function getURLParameter(e){var r=(RegExp("[?|&]"+e+"=(.+?)(&|$)").exec(location.search)||[,null])[1];return r?escape(decodeURI(r)):escape(r)}
 
 window.onload = function() {
   var marker = getURLParameter('marker');
