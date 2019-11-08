@@ -37,7 +37,7 @@ const {
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
 	icon: icon,
-	category: 'embed', // E.g. common, formatting, layout widgets, embed.
+	category: 'embed',
 	keywords: [
 		__( 'map' ),
 		__( 'nucloud' ),
@@ -130,7 +130,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ className }>
-				<iframe id={ element_id } src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style='height:{ map_height };'></iframe>
+				<iframe id={ element_id } src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style={{height: map_height}}></iframe>
 			</div>
 		];
 	},
