@@ -57,12 +57,14 @@ function nucloud_block_map_assets() { // phpcs:ignore
 	);
 
 	// Register block editor styles for backend.
-	wp_register_style(
-		'nucloud-map-block-editor-css', // Handle.
-		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
-		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
-	);
+	if ( is_admin() ) {
+		wp_register_style(
+			'nucloud-map-block-editor-css', // Handle.
+			plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
+			array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
+			null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
+		);
+	}
 
 	/**
 	 * Register Gutenberg block on server-side.
