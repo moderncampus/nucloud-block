@@ -37,33 +37,38 @@ const {
 registerBlockType( 'nucloud/map-embed', {
 	title: __( 'nuCloud Map Embed' ),
 	icon: icon,
-	category: 'embed', // E.g. common, formatting, layout widgets, embed.
+	category: 'embed',
 	keywords: [
 		__( 'map' ),
 		__( 'nucloud' ),
 		__( 'embed' ),
 	],
+	supports: {
+		align: ['center','full','wide'],
+    html: false,
+    multiple: false,
+	},
 	attributes: {
 		element_id: {
 			default: '',
-			type: 'string'
+			type: 'string',
 		},
 		layer: {
 			default: '',
-			type: 'string'
+			type: 'string',
 		},
 		map_height: {
-			default: '500',
-			type: 'number'
+			default: '500px',
+			type: 'string',
 		},
 		map_id: {
 			default: '5',
-			type: 'number'
+			type: 'string',
 		},
 		marker: {
 			default: '',
-			type: 'number'
-		}
+			type: 'string',
+		},
 	},
 
 	/**
@@ -76,9 +81,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 */
 	edit: function( props ) {
 		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
-		let saveAsNum = function(attr, val) {
-			props.setAttributes({attr:parseInt(val)});
-		}
+
 		return [
 			<InspectorControls>
 				<PanelBody
@@ -88,36 +91,33 @@ registerBlockType( 'nucloud/map-embed', {
 					<PanelRow>
 						<TextControl
 							label={ __( 'Map ID', 'nucloud' ) }
-							help={ __( '<a href="#">How do I find the ID of the map I want to embed?</a>', 'nucloud' ) }
-							onChange={ map_id => setAttributes( parseInt({map_id}) ) }
+							help={ <a href="https://github.com/nucloud/nucloud-block/tree/master#find-your-map-id" target="_blank">{ __( 'How do I find the ID of the map I want to embed?', 'nucloud' ) }</a> }
+							onChange={ map_id => setAttributes( { map_id } ) }
 							value={ map_id }
-							type='number'
 						/>
 					</PanelRow>
 
 					<PanelRow>
 						<TextControl
 							label={ __( 'Map Height', 'nucloud' ) }
-							help={ __( 'Enter the height of the embed in pixels', 'nucloud' ) }
-							onChange={ saveAsNum( map_height, {map_height} ) }
+							help={ __( 'Enter the height of the embed. (e.g. 500px, 75%...)', 'nucloud' ) }
+							onChange={ map_height => setAttributes( { map_height } ) }
 							value={ map_height }
-							type='number'
 						/>
 					</PanelRow>
 
 					<PanelRow>
 						<TextControl
-							label={ __( 'Display Marker', 'nucloud' ) }
+							label={ __( 'Open Marker on Load', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
 							onChange={ marker => setAttributes( { marker } ) }
 							value={ marker }
-							type='number'
 						/>
 					</PanelRow>
 
 					<PanelRow>
 						<TextControl
-							label={ __( 'Display Layers', 'nucloud' ) }
+							label={ __( 'Display Layers on Load', 'nucloud' ) }
 							help={ __( 'Enter a comma separated list of layer names to display them by default', 'nucloud' ) }
 							onChange={ layer => setAttributes( { layer } ) }
 							value={ layer }
@@ -127,7 +127,7 @@ registerBlockType( 'nucloud/map-embed', {
 					<PanelRow>
 						<TextControl
 							label={ __( 'Custom Element ID', 'nucloud' ) }
-							help={ __( 'Specify an ID to apply to the iframe that renders your map. Default: \'nucloud-map\'', 'nucloud' ) }
+							help={ __( 'Specify an HTML ID to apply to the iframe that renders your map. Default: \'nucloud-map\'', 'nucloud' ) }
 							onChange={ element_id => setAttributes( { element_id } ) }
 							value={ element_id }
 						/>
@@ -135,7 +135,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ className }>
-				<iframe src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} height={ map_height }></iframe>
+				<iframe id={ element_id } src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style={{height: map_height}}></iframe>
 			</div>
 		];
 	},
