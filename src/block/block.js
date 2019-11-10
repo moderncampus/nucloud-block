@@ -44,7 +44,8 @@ registerBlockType( 'nucloud/map-embed', {
 		__( 'embed' ),
 	],
 	supports: {
-		align: true,
+		align: ['center','full','wide'],
+    html: false,
     multiple: false,
 	},
 	attributes: {
