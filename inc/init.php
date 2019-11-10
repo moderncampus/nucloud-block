@@ -85,23 +85,26 @@ function nucloud_block_map_assets() { // phpcs:ignore
 			'editor_style'    => 'nucloud-map-block-editor-css',
 			'render_callback' => 'nucloud_block_map_render',
 			'attributes'      => [
-				'map_id'     => [
+				'align'     => [
+					'type'    => 'string'
+				],
+				'map_id'    => [
 					'default' => '',
 					'type'    => 'string'
 				],
-				'map_height' => [
+				'map_height'=> [
 					'default' => '500px',
 					'type'    => 'string'
 				],
-				'element_id' => [
+				'element_id'=> [
 					'default' => 'nucloud-map',
 					'type'    => 'string'
 				],
-				'marker' => [
+				'marker'    => [
 					'default' => '',
 					'type'    => 'string'
 				],
-				'layer' => [
+				'layer'     => [
 					'default' => '',
 					'type'    => 'string'
 				]
@@ -115,6 +118,9 @@ function nucloud_block_map_render( $attributes ) {
 	$class = 'wp-block-nucloud-map-embed';
 	if ( isset( $attributes['className'] ) ) {
 		$class .= ' ' . $attributes['className'];
+	}
+	if ( isset( $attributes['align'] ) ) {
+		$class .= ' align' . $attributes['align'];
 	}
 
 	return '<div class="' . $class . '">
