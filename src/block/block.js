@@ -43,27 +43,30 @@ registerBlockType( 'nucloud/map-embed', {
 		__( 'nucloud' ),
 		__( 'embed' ),
 	],
+	supports: {
+		align: true
+	},
 	attributes: {
 		element_id: {
 			default: '',
-			type: 'string'
+			type: 'string',
 		},
 		layer: {
 			default: '',
-			type: 'string'
+			type: 'string',
 		},
 		map_height: {
 			default: '500px',
-			type: 'string'
+			type: 'string',
 		},
 		map_id: {
 			default: '5',
-			type: 'string'
+			type: 'string',
 		},
-		marker_id: {
+		marker: {
 			default: '',
-			type: 'number'
-		}
+			type: 'string',
+		},
 	},
 
 	/**
@@ -75,7 +78,7 @@ registerBlockType( 'nucloud/map-embed', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function( props ) {
-		const { attributes: { element_id, map_id, map_height, marker_id, layer }, className, setAttributes } = props;
+		const { attributes: { element_id, map_id, map_height, marker, layer }, className, setAttributes } = props;
 
 		return [
 			<InspectorControls>
@@ -105,8 +108,8 @@ registerBlockType( 'nucloud/map-embed', {
 						<TextControl
 							label={ __( 'Open Marker on Load', 'nucloud' ) }
 							help={ __( 'Enter a marker ID to display a stop by default. (Overrides layers)', 'nucloud' ) }
-							onChange={ marker_id => setAttributes( { marker_id } ) }
-							value={ marker_id }
+							onChange={ marker => setAttributes( { marker } ) }
+							value={ marker }
 						/>
 					</PanelRow>
 
@@ -130,7 +133,7 @@ registerBlockType( 'nucloud/map-embed', {
 				</PanelBody>
 			</InspectorControls>,
 			<div className={ className }>
-				<iframe id={ element_id } src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker_id}&layer=${layer}`} style={{height: map_height}}></iframe>
+				<iframe id={ element_id } src={`https://cdn-map1.nucloud.com/nucloudmap/index.html?map=${map_id}&marker=${marker}&layer=${layer}`} style={{height: map_height}}></iframe>
 			</div>
 		];
 	},

@@ -86,24 +86,24 @@ function nucloud_block_map_assets() { // phpcs:ignore
 			'render_callback' => 'nucloud_block_map_render',
 			'attributes'      => [
 				'map_id'     => [
-					'default' => '5',
-					'type'    => 'string',
+					'default' => '',
+					'type'    => 'string'
 				],
 				'map_height' => [
 					'default' => '500px',
-					'type'    => 'string',
+					'type'    => 'string'
 				],
 				'element_id' => [
 					'default' => 'nucloud-map',
-					'type'    => 'string',
+					'type'    => 'string'
 				],
-				'marker_id' => [
+				'marker' => [
 					'default' => '',
-					'type'    => 'string',
+					'type'    => 'string'
 				],
 				'layer' => [
 					'default' => '',
-					'type'    => 'string',
+					'type'    => 'string'
 				]
 			],
 		)
@@ -118,7 +118,7 @@ function nucloud_block_map_render( $attributes ) {
 	}
 
 	return '<div class="' . $class . '">
-		<iframe id="' . $attributes['element_id'] . '" data-map-id="' . $attributes['map_id'] . '" data-marker="' . $attributes['marker_id'] . '" data-layer="' . $attributes['layer'] . '" src style="height:' . $attributes['map_height'] . ';"></iframe>
+		<iframe id="' . $attributes['element_id'] . '" data-map-id="' . $attributes['map_id'] . '" data-marker="' . $attributes['marker'] . '" data-layer="' . $attributes['layer'] . '" src style="height:' . $attributes['map_height'] . ';"></iframe>
 	</div>';
 }
 

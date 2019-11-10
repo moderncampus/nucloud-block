@@ -5,16 +5,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if(typeof frame !== 'undefined' && frame !== null) {
     var mapId  = frame.getAttribute('data-map-id');
-    var marker = getURLParameter('marker') ? getURLParameter('marker') : frame.getAttribute('data-marker');
-    var layer  = getURLParameter('layer') ? getURLParameter('layer') : frame.getAttribute('data-layer');
+    var marker = getURLParameter('marker'); 
+    var layer  = getURLParameter('layer');
+    if(marker == 'null') marker = frame.getAttribute('data-marker');
+    if(layer == 'null') layer = frame.getAttribute('data-layer');
     var src    = 'https://cdn-map1.nucloud.com/nucloudmap/index.html?map=' + mapId;
-
-    if(marker != null) {
-    	src += '&marker=' + marker;
-    } else if(layer != null) {
-    	src += '&layer=' + layer;
-    }
-
+    if(marker != 'null' && marker != null && marker != '') src += '&marker=' + marker;
+    if(layer != 'null' && layer != null && layer != '') src += '&layer=' + layer;
     frame.src = src;
   }
 });
